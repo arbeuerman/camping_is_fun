@@ -1,0 +1,19 @@
+<h1> Sign up for an Activity </h1>
+
+<%= form_for @signup do |f| %>
+    <%= f.collection_select(:camper_id, @campers, :id, :name) %>
+    <%= f.collection_select(:activity_id, @activities, :id, :name) %>
+    <%= f.label :hour_of_activity %> 
+    <%= f.number_field :hour_of_activity %> 
+
+    <%= f.submit %>
+<% end %>
+
+<% if flash[:errors] %>
+    <h4> There were some errors with your submission: </h4>
+    <% flash[:errors].each do |error| %>
+        <p><%= error %> </p>
+    <% end %>
+<% end %>
+
+<h4> <%= link_to "See All Activities", activities_path %> </h4>

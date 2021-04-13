@@ -1,0 +1,18 @@
+<h1> Add a camper </h1>
+
+<%= form_for @camper do |f| %>
+    <%= f.label :name %> 
+    <%= f.text_field :name %>
+    <%= f.label :age %> 
+    <%= f.number_field :age %> 
+
+    <%= f.submit %>
+<% end %>
+
+<% if flash[:errors] %>
+    <h4> There were some errors with your submission: </h4>
+    <% flash[:errors].each do |error| %>
+        <p><%= error %> </p>
+    <% end %>
+<% end %>
+
